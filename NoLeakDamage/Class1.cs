@@ -13,17 +13,17 @@ namespace NoLeakDamage
         {
             MelonLogger.Log("No leak damage mod loaded");
         }
-		[HarmonyPatch(typeof(MapLoader), "Load")]
-		public class MapLoader_Patch
-		{
-			[HarmonyPostfix]
-			public static void Postfix()
-			{
+        [HarmonyPatch(typeof(MapLoader), "Load")]
+        public class MapLoader_Patch
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
                 foreach (BloonModel bloon in Game.instance.model.bloons)
                 {
-					bloon.leakDamage = 0;
+                    bloon.leakDamage = 0;
                 }
-			}
-		}
-	}
+            }
+        }
+    }
 }
